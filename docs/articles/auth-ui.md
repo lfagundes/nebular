@@ -204,7 +204,34 @@ The settings will be merged with the default values so no need to specify all of
 
 In a case when the look & feel of the Nebular auth components doesn't satisfy your needs, you can easily create custom authentication components based on the Nebular ones.
 
-All you need to do is:
+You have two ways of doing this: either extend auth components, or copy component sources to your source code.
+
+### Extend components
+
+You can create new components that extends the auth components provided by Nebular, and at this new component you can specify your custom HTML and CSS files. Below is an example on how to do that for customizing the login screen:
+
+```typescript
+import { Component } from '@angular/core';
+import { NbLoginComponent } from '@nebular/auth';
+
+@Component({
+    selector: 'nb-login',
+    templateUrl: 'login.component.html',
+})
+export class MyLoginComponent extends NbLoginComponent {
+}
+```
+
+Now, copy the file @nebular/auth/components/login/login.component.html to your login.component.html and modify as needed.
+
+<div class="note note-warning">
+  <div class="note-title">Remove the &lt;nb-auth-block&gt; tag from your version of login.component.html.</div>
+  <div class="note-body">
+    &lt;nb-auth-block&gt; is component-wrapper that provides basic styles for the forms. It won't work in your new component scope, so you need to create your own styles there.
+  </div>
+</div>
+
+The same method can be used to customize all other components: logout, register, request-password and reset-password.
 
 ### Copy component sources
 
