@@ -12,22 +12,7 @@ import { takeWhile } from 'rxjs/operators';
 @Component({
   selector: 'nb-auth',
   styleUrls: ['./auth.component.scss'],
-  template: `
-    <nb-layout>
-      <nb-layout-column>
-        <nb-card>
-          <nb-card-header>
-            <a href="#" (click)="back()"><i class="nb-arrow-thin-left"></i></a>
-          </nb-card-header>
-          <nb-card-body>
-            <div class="flex-centered col-xl-4 col-lg-6 col-md-8 col-sm-12">
-              <router-outlet></router-outlet>
-            </div>
-          </nb-card-body>
-        </nb-card>
-      </nb-layout-column>
-    </nb-layout>
-  `,
+  templateUrl: './auth.component.html',
 })
 export class NbAuthComponent implements OnDestroy {
 
